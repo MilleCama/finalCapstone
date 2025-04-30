@@ -1,0 +1,233 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*  Apply a natural box layout model to all elements  */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+} // end all elements
+
+
+/* --------------------------- BODY --------------------------- */
+body {
+    font-family: $defaultFont;
+    font-weight: $lightWeight;
+    min-width: 320px;
+}
+
+
+/* --------------------------- HEADER --------------------------- */
+#headerWrapper {border-bottom: 1px solid $greyColor;}
+header {
+    display: grid;
+    grid-template-columns: 50px auto 44px;
+    column-gap: $gutter;
+    align-items: center; //vertically
+    padding: .5rem $gutter;
+    span {
+        font-size: 1.6rem;
+        font-family: 'Spline Sans', sans-serif;
+        font-weight: bold;
+        color: $primaryColor;
+    }
+} // end header
+
+
+/* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+
+#hamburgerBtn {
+    position: relative;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    .top, .bottom {
+        position: absolute;
+        height: 2px;
+        width: 50%;
+        left: 25%;
+        background-color: #777;
+        transition: all .3s ease;
+    }
+    .top {
+        top: 33%;
+    }
+    .bottom {
+        top: 62%;
+    }
+}
+
+#hamburgerBtn.open {
+    .top {
+        transform: rotate(45deg);
+        top: 48%;
+        width: 60%;
+        left: 20%;
+    }
+    .bottom {
+        transform: rotate(-45deg);
+        top: 48%;
+        width: 60%;
+        left: 20%;
+    }
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    li a {
+        color: $primaryColor;
+        display: block;
+        padding: .75rem $gutter;
+        text-decoration: none;
+        border-bottom: 1px solid $greyColor;
+    }
+    li.active a {
+        color: $secondaryColor;
+    }
+}
+nav ul.open {
+    display: block;
+}
+
+
+
+
+/* --------------------------- MAIN --------------------------- */
+main {
+    h1 {
+        padding: 1rem $gutter.5rem $gutter;
+        font-size: 1.5rem;
+        color: $primaryColor;
+        font-weight: bold;
+        text-align: center;
+    }
+    p {
+        padding: .5rem $gutter;
+        color: #333;
+        line-height: $leading;
+    }
+    h2 {
+        text-align: center;
+        color: $primaryColor;
+    }
+    h3 {
+        text-align: center;
+        color: $secondaryColor;
+    }
+}// end main
+
+.hero {
+    position: relative;
+    div {
+        position: absolute;
+        top: 5px;
+        color: white;
+        left: 40%;
+        right: 0;
+        padding: 0 5px;
+        margin: 0;
+        background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(246, 234, 234, 0.464) 20%);
+        h3{
+            text-shadow: 0 0 2px gray;
+            right: 0;
+            margin: 0;
+            padding: 10px;
+            color: black;
+            text-align: end;
+
+        }
+     
+    }
+    video {
+    width: 100%;
+    height: auto;
+}
+}
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
+.card {
+    display: block;
+    margin: 10px;
+    padding: 0;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(222, 222, 222);
+    box-shadow: 5px 5px 5px rgb(158, 158, 158);
+
+    li {
+        text-align: left;
+    }
+
+    h4 {
+        background-color: $secondaryColor;
+        top: 0;
+        padding: 5px;
+        margin: 0;
+        border-top-right-radius: 9px;
+        border-top-left-radius: 9px;
+        color: white;
+    }
+    
+    img {
+        width: 100%;
+        height: auto;
+    }
+   
+
+}
+
+#clients {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+
+
+/* --------------------------- FOOTER --------------------------- */
+#footerWrapper {
+    background-color: $primaryColor
+} // end footer wrapper
+
+footer {
+    font-size: .85rem;
+    padding: 1rem $gutter;
+    color: $greyColor;
+    line-height: $leading;
+    a {color: $greyColor;}
+}
+
+footer .phone{
+text-align: center;
+margin-bottom: 1rem;
+font-weight: bold;
+text-decoration: none;
+font-size: 20px;
+
+}// end footer
+
+#fParent {
+    display: grid;
+    grid-template-columns: 1fr; 
+    align-items: center;
+   
+    .fCard address {
+        padding-left: 10px;
+    }
+}
+
+#last {
+    text-align: center;
+}
